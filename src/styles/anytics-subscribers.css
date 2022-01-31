@@ -1,0 +1,35 @@
+.search-card {
+    width: 80%;    
+}
+#search-addon {
+    background: transparent;    
+    position: absolute;
+    z-index: 99;
+    padding: 5px;
+    top: 7px;
+    left: 5px;
+}
+.search-input {
+    padding-left: 36px;
+}
+.search-card .icon {
+    font-size: 25px;
+    
+}
+.search-card .card-header {
+    border: none;
+}
+.search-card .list-group-item {
+    padding-top: 20px;
+    border-left: none;
+    border-right: none;
+}
+.search-card .details {
+    padding-left: 15px;
+}
+
+@media (max-width: 768px) {
+    .search-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,29 @@
+@import "../constants.scss";
+
+.page-setting {
+    .form-select {
+        background-image: url(../../img/icon/triangle.svg) !important;
+    }
+
+    .text{
+        &-desc {
+            color: #97A1AA;
+            font-size: 12px;
+            line-height: 14px;
+        }
+
+        &-register {
+            font-size: 11px;
+            line-height: 13px;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .page-setting {
+
+        .text-desc {
+            color: $black;
+        }
+    }
+}

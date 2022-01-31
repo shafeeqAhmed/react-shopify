@@ -1,0 +1,105 @@
+@import "../constants.scss";
+
+.edit-team-members,
+.add-team-members {
+    .text-content {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        color: $defaultFontColor;
+    }
+    .text-label {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: $black !important;
+    }
+    .sub-text {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .form-check-input.is-valid,
+    .was-validated .form-check-input:valid {
+        color: $defaultFontColor !important;
+        border-color: $defaultFontColor;
+    }
+    .form-left {
+        border-right: 1px solid #e3e3e3;
+        padding-left: 15px;
+        padding-right: 30px;
+    }
+    .form-right {
+        padding-left: 47px;
+    }
+    .text-feedback {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 13px;
+        color: #74828e;
+    }
+    .p0 {
+        padding: 0;
+    }
+    .mb-30 {
+        margin-bottom: 30px;
+    }
+    .pl-30 {
+        padding-left: 30px;
+    }
+    .p-15 {
+        padding: 15px;
+    }
+    .list-buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .button-cancel,
+    .button-delete {
+        padding: 10px 16px;
+        font-size: 13px;
+        line-height: 15px;
+        color: #414344;
+    }
+    .button-cancel {
+        margin-right: 28px;
+    }
+    .button-success {
+        padding: 10px 37px;
+        font-size: 13px;
+        line-height: 15px;
+        text-align: center;
+
+        color: #fbfdfc;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .edit-team-members {
+        .form-left {
+            border-right: none;
+            border-bottom: 1px solid #e3e3e3;
+            padding-right: 15px;
+        }
+        .form-right {
+            padding-left: 15px;
+            margin-top: 20px;
+        }
+        .form-header {
+            padding-left: 0;
+        }
+    }
+    .add-team-members {
+        .form-header {
+            padding-left: 0;
+        }
+    }
+}
