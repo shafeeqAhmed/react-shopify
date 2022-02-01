@@ -39,17 +39,30 @@ function timeConverter(UNIX_timestamp, isFull = true) {
   return time;
 }
 
-const AnalyticsSubscriber = () => {
+const AnalyticsSubscriber = (props) => {
+
   const faSch = <FontAwesomeIcon icon={faSearch} />;
   const faBk = <FontAwesomeIcon icon={faBook} />;
   const [buttonAddSub, setButtonAddSub] = useState("+ Subscriber");
   const listUser = useSelector((state) => state.user.listUser);
+  const [searching, setSearching] = useState(false);
+  const [listingUsers, setListingUsers] = useState(listUser);
+  const [noResult, setNoResult] = useState(false);
   const history = useHistory();
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllUser());
+    if(!searching){
+      let sorting = JSON.parse(JSON.stringify(listUser))
+      sorting?.sort(function(a,b){
+        return a.isEnabled - b.isEnabled});
+      sorting.reverse();
+      setListingUsers(sorting)
+    }
   }, [dispatch, listUser]);
+// }, []);
+
   const [windowWidth, setWindowWidth] = useState(0);
   let resizeWindow = () => {
     setWindowWidth(window.innerWidth);
@@ -67,6 +80,32 @@ const AnalyticsSubscriber = () => {
     isMobile ? setButtonAddSub("+") : setButtonAddSub("+ Subscriber");
   }, [windowWidth]);
 
+
+  const searchUser = (e) => {
+    if(isBlank(e)){
+      setSearching(false);
+    } else {
+      setSearching(true);
+      let result = listUser.filter((item, index) => {
+        return (item.firstName.includes(e) || item.lastName.includes(e));
+      })
+
+      if(result.length){
+        setNoResult(false)
+        setListingUsers(result)
+      } else {
+        setNoResult(true)
+        setListingUsers([])
+
+      }
+    }
+  }
+
+  function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+
+
   return (
     <Container className="padding-container" fluid>
       <Row>
@@ -79,6 +118,7 @@ const AnalyticsSubscriber = () => {
                     {faSch}
                   </span>
                   <input
+                    onChange={(e) => searchUser(e.target.value)}
                     type="search"
                     className="form-control rounded search-input"
                     placeholder="Search"
@@ -97,14 +137,18 @@ const AnalyticsSubscriber = () => {
                   {listUser?.length} recipients enabled
                 </p>
               </div>
+
+              
+              {noResult && <div className="card-body p-2  m-2">No result found!</div>}
               <div className="card-body pt-0 px-0">
                 <ul className="list-group">
-                  {listUser?.map((item, index) => (
+                  {listingUsers?.map((item, index) => (
                     <li
                       className="list-group-item"
                       key={index}
-                      onClick={() =>
-                        history.push(`/edit-team-members/${item.id}`)
+                      onClick={() => 
+                        // console.log('history', props.history)
+                        props.history.push(`/edit-team-members/${item.id}`)
                       }
                     >
                       <div className="d-inline-flex">

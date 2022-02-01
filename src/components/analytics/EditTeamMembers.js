@@ -11,7 +11,7 @@ import { useHistory } from "react-router";
 import "styles/pages/editTeamMember.scss";
 
 const EditTeamMembers = (props) => {
-  const history = useHistory();
+  const history = props.history;
   const dispatch = useDispatch();
   const id = props.match.params.id;
 
@@ -79,6 +79,7 @@ const EditTeamMembers = (props) => {
   }, [dispatch, id]);
 
   useEffect(() => {
+    console.log('user' , userInfo)
     user &&
       setUserInfo({
         firstName: user.firstName,
@@ -333,11 +334,11 @@ const EditTeamMembers = (props) => {
             <Col lg={2} xs={0} />
             <Col className="list-buttons">
               <div className="list-cancel">
-                <Button variant="outline-secondary" className="button-cancel">
+                <Button onClick={() => history.push("/analytics-subscribers")} variant="outline-secondary" className="button-cancel">
                   Cancel
                 </Button>
                 <Button
-                  variant="outline-danger"
+                  variant={(userInfo && userInfo?.isEnabled) ? 'outline-danger' : 'outline-success'}
                   className="button-delete"
                   onClick={() =>
                     setUserInfo({
@@ -346,7 +347,7 @@ const EditTeamMembers = (props) => {
                     })
                   }
                 >
-                  Disable
+                  { (userInfo && userInfo?.isEnabled) ? 'Disable' : 'Enable'}
                 </Button>
               </div>
               <div>
