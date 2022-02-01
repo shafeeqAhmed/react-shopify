@@ -1,8 +1,8 @@
 import jwtDecode from "jwt-decode";
-import ApiService from "./apiService";
+import ApiService from "services/apiService";
 import axios from "axios";
-import StorageManager from './../app/storageManager'
-import {paths} from "../global/globalVariables";
+import StorageManager from 'app/storageManager'
+import {paths} from "global/globalVariables";
 
 let sessionUser = StorageManager.getSessionDataValue("user");
 let refreshToken = StorageManager.getSessionDataValue("refreshToken");

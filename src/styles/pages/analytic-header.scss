@@ -1,0 +1,109 @@
+@import '../constants.scss';
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  @media only screen and (max-width: 576px) {
+    position: static !important;
+  }
+}
+.analytic-header {
+  @media (min-width: 982px) {
+    padding-left: 2rem !important;
+  }
+
+  &_title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+  }
+  .svg-inline--fa.fa-w-10 {
+    width: 0.51em;
+  }
+  .text-black {
+    color: $black;
+  }
+  .text-gray {
+    color: $defaultFontColor;
+  }
+  .fs-xxxl {
+    font-size: 48px;
+  }
+  .fs-xxl {
+    font-size: 36px;
+  }
+  .fs-xl {
+    font-size: 24px;
+  }
+  .fs-l {
+    font-size: 18px;
+  }
+  .fs-xm {
+    font-size: 14px;
+  }
+  .fs-m {
+    font-size: 13px;
+  }
+  .fs-s {
+    font-size: 11px;
+  }
+  .fs-xs {
+    font-size: 10px;
+  }
+  .fw-400 {
+    font-weight: 400;
+  }
+  .value-money {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+  }
+  .section-one,
+  .section-two {
+    height: 30px;
+    padding: 10px;
+  }
+  .section-one {
+    p {
+      font-size: 10px;
+      line-height: 12px;
+      color: #6b6b6b;
+    }
+  }
+  .section-three {
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+  }
+  @media only screen and (max-width: 576px) {
+    .section-col {
+      padding-bottom: 0px !important;
+    }
+  }
+  .text-green-up {
+    color: #9fce1d;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .text-red-down {
+    color: #f05a28;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .small {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .header-info {
+    text-align: right;
+    color: #000000;
+  }
+}

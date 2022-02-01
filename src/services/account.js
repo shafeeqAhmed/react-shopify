@@ -1,5 +1,5 @@
 import axios from "axios";
-import {globalConstants} from "../global/globalVariables";
+import { globalConstants } from "global/globalVariables";
 
 export function createShopifyOrganisation(data) {
   const requestUrl = globalConstants.BASE_URL + globalConstants.URL_INITIAL + "org/private/shopify";

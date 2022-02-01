@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+      crossorigin
+    ></script>
+    <script>
+      var Alert = ReactBootstrap.Alert;
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      svg:not(:root).svg-inline--fa {
+        overflow: visible;
+      }
+
+      .svg-inline--fa {
+        display: inline-block;
+        font-size: inherit;
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+      .svg-inline--fa.fa-lg {
+        vertical-align: -0.225em;
+      }
+      .svg-inline--fa.fa-w-1 {
+        width: 0.0625em;
+      }
+      .svg-inline--fa.fa-w-2 {
+        width: 0.125em;
+      }
+      .svg-inline--fa.fa-w-3 {
+        width: 0.1875em;
+      }
+      .svg-inline--fa.fa-w-4 {
+        width: 0.25em;
+      }
+      .svg-inline--fa.fa-w-5 {
+        width: 0.3125em;
+      }
+      .svg-inline--fa.fa-w-6 {
+        width: 0.375em;
+      }
+      .svg-inline--fa.fa-w-7 {
+        width: 0.4375em;
+      }
+      .svg-inline--fa.fa-w-8 {
+        width: 0.5em;
+      }
+      .svg-inline--fa.fa-w-9 {
+        width: 0.5625em;
+      }
+      .svg-inline--fa.fa-w-10 {
+        width: 0.625em;
+      }
+      .svg-inline--fa.fa-w-11 {
+        width: 0.6875em;
+      }
+      .svg-inline--fa.fa-w-12 {
+        width: 0.75em;
+      }
+      .svg-inline--fa.fa-w-13 {
+        width: 0.8125em;
+      }
+      .svg-inline--fa.fa-w-14 {
+        width: 0.875em;
+      }
+      .svg-inline--fa.fa-w-15 {
+        width: 0.9375em;
+      }
+      .svg-inline--fa.fa-w-16 {
+        width: 1em;
+      }
+      .svg-inline--fa.fa-w-17 {
+        width: 1.0625em;
+      }
+      .svg-inline--fa.fa-w-18 {
+        width: 1.125em;
+      }
+      .svg-inline--fa.fa-w-19 {
+        width: 1.1875em;
+      }
+      .svg-inline--fa.fa-w-20 {
+        width: 1.25em;
+      }
+      .svg-inline--fa.fa-pull-left {
+        margin-right: 0.3em;
+        width: auto;
+      }
+      .svg-inline--fa.fa-pull-right {
+        margin-left: 0.3em;
+        width: auto;
+      }
+      .svg-inline--fa.fa-border {
+        height: 1.5em;
+      }
+      .svg-inline--fa.fa-li {
+        width: 2em;
+      }
+      .svg-inline--fa.fa-fw {
+        width: 1.25em;
+      }
+
+      .fa-layers svg.svg-inline--fa {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .fa-layers {
+        display: inline-block;
+        height: 1em;
+        position: relative;
+        text-align: center;
+        vertical-align: -0.125em;
+        width: 1em;
+      }
+      .fa-layers svg.svg-inline--fa {
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+      }
+
+      .fa-layers-counter,
+      .fa-layers-text {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+      }
+
+      .fa-layers-text {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+      }
+
+      .fa-layers-counter {
+        background-color: #ff253a;
+        border-radius: 1em;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #fff;
+        height: 1.5em;
+        line-height: 1;
+        max-width: 5em;
+        min-width: 1.5em;
+        overflow: hidden;
+        padding: 0.25em;
+        right: 0;
+        text-overflow: ellipsis;
+        top: 0;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+      }
+
+      .fa-layers-bottom-right {
+        bottom: 0;
+        right: 0;
+        top: auto;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+      }
+
+      .fa-layers-bottom-left {
+        bottom: 0;
+        left: 0;
+        right: auto;
+        top: auto;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left;
+      }
+
+      .fa-layers-top-right {
+        right: 0;
+        top: 0;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+      }
+
+      .fa-layers-top-left {
+        left: 0;
+        right: auto;
+        top: 0;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: top left;
+        transform-origin: top left;
+      }
+
+      .fa-lg {
+        font-size: 1.3333333333em;
+        line-height: 0.75em;
+        vertical-align: -0.0667em;
+      }
+
+      .fa-xs {
+        font-size: 0.75em;
+      }
+
+      .fa-sm {
+        font-size: 0.875em;
+      }
+
+      .fa-1x {
+        font-size: 1em;
+      }
+
+      .fa-2x {
+        font-size: 2em;
+      }
+
+      .fa-3x {
+        font-size: 3em;
+      }
+
+      .fa-4x {
+        font-size: 4em;
+      }
+
+      .fa-5x {
+        font-size: 5em;
+      }
+
+      .fa-6x {
+        font-size: 6em;
+      }
+
+      .fa-7x {
+        font-size: 7em;
+      }
+
+      .fa-8x {
+        font-size: 8em;
+      }
+
+      .fa-9x {
+        font-size: 9em;
+      }
+
+      .fa-10x {
+        font-size: 10em;
+      }
+
+      .fa-fw {
+        text-align: center;
+        width: 1.25em;
+      }
+
+      .fa-ul {
+        list-style-type: none;
+        margin-left: 2.5em;
+        padding-left: 0;
+      }
+      .fa-ul > li {
+        position: relative;
+      }
+
+      .fa-li {
+        left: -2em;
+        position: absolute;
+        text-align: center;
+        width: 2em;
+        line-height: inherit;
+      }
+
+      .fa-border {
+        border: solid 0.08em #eee;
+        border-radius: 0.1em;
+        padding: 0.2em 0.25em 0.15em;
+      }
+
+      .fa-pull-left {
+        float: left;
+      }
+
+      .fa-pull-right {
+        float: right;
+      }
+
+      .fa.fa-pull-left,
+      .fas.fa-pull-left,
+      .far.fa-pull-left,
+      .fal.fa-pull-left,
+      .fab.fa-pull-left {
+        margin-right: 0.3em;
+      }
+      .fa.fa-pull-right,
+      .fas.fa-pull-right,
+      .far.fa-pull-right,
+      .fal.fa-pull-right,
+      .fab.fa-pull-right {
+        margin-left: 0.3em;
+      }
+
+      .fa-spin {
+        -webkit-animation: fa-spin 2s infinite linear;
+        animation: fa-spin 2s infinite linear;
+      }
+
+      .fa-pulse {
+        -webkit-animation: fa-spin 1s infinite steps(8);
+        animation: fa-spin 1s infinite steps(8);
+      }
+
+      @-webkit-keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .fa-rotate-90 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .fa-rotate-180 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      .fa-rotate-270 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+      }
+
+      .fa-flip-horizontal {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+        -webkit-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+      }
+
+      .fa-flip-vertical {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+        -webkit-transform: scale(1, -1);
+        transform: scale(1, -1);
+      }
+
+      .fa-flip-both,
+      .fa-flip-horizontal.fa-flip-vertical {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+      }
+
+      :root .fa-rotate-90,
+      :root .fa-rotate-180,
+      :root .fa-rotate-270,
+      :root .fa-flip-horizontal,
+      :root .fa-flip-vertical,
+      :root .fa-flip-both {
+        -webkit-filter: none;
+        filter: none;
+      }
+
+      .fa-stack {
+        display: inline-block;
+        height: 2em;
+        position: relative;
+        width: 2.5em;
+      }
+
+      .fa-stack-1x,
+      .fa-stack-2x {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .svg-inline--fa.fa-stack-1x {
+        height: 1em;
+        width: 1.25em;
+      }
+      .svg-inline--fa.fa-stack-2x {
+        height: 2em;
+        width: 2.5em;
+      }
+
+      .fa-inverse {
+        color: #fff;
+      }
+
+      .sr-only {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .sr-only-focusable:active,
+      .sr-only-focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+      }
+
+      .svg-inline--fa .fa-primary {
+        fill: var(--fa-primary-color, currentColor);
+        opacity: 1;
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa .fa-secondary {
+        fill: var(--fa-secondary-color, currentColor);
+        opacity: 0.4;
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-primary {
+        opacity: 0.4;
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-secondary {
+        opacity: 1;
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa mask .fa-primary,
+      .svg-inline--fa mask .fa-secondary {
+        fill: black;
+      }
+
+      .fad.fa-inverse {
+        color: #fff;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif!important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #f6f6f8;
+      }
+
+      code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+          monospace;
+      }
+
+      .bg-gray {
+        background-color: #f6f6f8;
+      }
+      .text-green {
+        color: rgb(154, 236, 2);
+      }
+      .text-red {
+        color: rgb(223, 0, 0);
+      }
+      @media (min-width: 1024px) {
+        .analytic-card {
+          width: 85%;
+        }
+      }
+      .card .card-header,
+      .card .card-footer {
+        background-color: white;
+      }
+      .analytic-card .card-body {
+        min-height: 500px;
+      }
+      .card-info {
+        position: absolute;
+        display: inline-flex;
+        right: 0px;
+        top: 10px;
+        text-align: right;
+        padding-right: 5px;
+      }
+      .small,
+      small {
+        font-size: 0.8em;
+      }
+      .card-icon {
+        border: 3px solid #666666;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .card-sm-icon {
+        border: 2px solid #666666;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 10px;
+      }
+      .card-icon svg,
+      .card-sm-icon svg {
+        color: #666666;
+      }
+      /* .card-info {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  text-align: right;
+  top: 10px;
+  right: 15px;
+} */
+      .icon {
+        padding-left: 2px;
+        opacity: 0.5;
+      }
+      .icon-rotate {
+        padding-left: 2px;
+        transform: rotate(180deg);
+      }
+      .card-col-icon {
+        width: 55px;
+      }
+      @media (min-width: 1200px) {
+        .card-offset {
+          margin-left: 55px;
+        }
+      }
+
+      @media (max-width: 448px) {
+        .header-info-mobile {
+          padding-top: 50px;
+        }
+        .header-info {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .analytic-card {
+          width: 100%;
+        }
+        .card-header-row {
+          padding-top: 50px;
+        }
+        .card-title-col {
+          width: 80%;
+          margin-left: -15px;
+          padding-top: 5px;
+        }
+      }
+      .page-stat-erday span {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: right;
+        color: #706f6f;
+      }
+      .page-stat-erday .content-percent1 span {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #9fce1d;
+      }
+      .page-stat-erday .content-number1 span {
+        font-style: normal;
+        font-weight: normal !important;
+        font-size: 14px !important;
+        line-height: 16px !important;
+        color: #706f6f !important;
+      }
+      .page-stat-erday .title-column {
+        font-weight: bold !important;
+        text-align: right !important;
+        color: #706f6f !important;
+      }
+      @media only screen and (min-width: 576px) {
+        .page-stat-erday .title-column {
+          display: none !important;
+        }
+      }
+      @media only screen and (max-width: 576px) {
+        .page-stat-erday .responsive-mobile {
+          display: none !important;
+        }
+        .page-stat-erday .respone-section {
+          display: flex;
+          flex-flow: column;
+          align-items: flex-start;
+        }
+        .page-stat-erday .respone-section span {
+          margin-bottom: 20px;
+        }
+      }
+      .page-stat-erday div {
+        margin-bottom: 10px;
+      }
+      .page-stat-erday .row2 {
+        margin-top: -20px;
+      }
+      .page-stat-erday .card-footer {
+        position: relative;
+        bottom: 0px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-stat-erday">
+      <div class="card-header border-bottom-1 pl-3 position-relative">
+        <div class="row card-header-row">
+          <div class="col-1 d-flex card-col-icon align-items-center">
+            <div class="card-icon">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="dollar-sign"
+                class="svg-inline--fa fa-dollar-sign fa-w-9"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 288 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="col-11 card-title-col">
+            <div class="card-title fs-5 fw-bold">Saturday, Stat-er-day!</div>
+          </div>
+          <div class="col-12 card-offset-customer">
+            <p class="card-info small">
+              How to read information in <br />this card?<span
+                class="card-sm-icon m-2"
+                ><svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="info"
+                  class="svg-inline--fa fa-info fa-w-6"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 192 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z"
+                  ></path></svg
+              ></span>
+            </p>
+            <p class="small text-muted mb-1 mb-md-2">
+              Monday 1st December 2021
+            </p>
+            <div class="text-wrap pr-3 w-75">
+              <p class="card-text">
+                Yesterday we looked at your Segments and how they are
+                developing. Today we can cross-reference that with new Customers
+                this cohort and see if your actions this month are driving
+                higher LTV Customers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="px-4 py-3 section-container container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-sm-4"></div>
+          <div class="col-lg-4 col-sm-4">
+            <div class="responsive-mobile row">
+              <div class="col-lg-4 col-sm-4">
+                <div><span>30 day change</span></div>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <div><span>Avg Customer Value</span></div>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <div><span>Number Customers</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-4">
+            <div class="responsive-mobile row">
+              <div class="col-lg-4 col-sm-4">
+                <div><span>Segment Value Last 6 months</span></div>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <div><span>% of total sales Last 6 months</span></div>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <div><span>% of total sales Last Year</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row2 row">
+          <div class="responsive-mobile col-lg-4 col-sm-4">
+            <div class="row">
+              <div><span>Active High Value Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>Active Avg Value Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>Active Low Value Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>Active Low Value Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>Active Loyal Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>New Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>Lost Customers</span></div>
+            </div>
+            <div class="row">
+              <div><span>At Risk Customers</span></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-4">
+            <div class="row">
+              <div class="col-lg-4 col-sm-4 col-12">
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">30 day change</span
+                    ><span class="title-column"
+                      >Active High Value Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Avg Value Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Loyal Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">New Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Lost Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">At Risk Customers</span
+                    ><span>+34%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-12">
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Avg Customer Value</span
+                    ><span class="title-column"
+                      >Active High Value Customers</span
+                    ><span>£2,856</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Avg Value Customers</span
+                    ><span>£856</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>£56</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>£56</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Loyal Customers</span
+                    ><span>£856</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">New Customers</span
+                    ><span>£56</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Lost Customers</span
+                    ><span>£1,256</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">At Risk Customers</span
+                    ><span>£1,256</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-12">
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Number Customers</span
+                    ><span class="title-column"
+                      >Active High Value Customers</span
+                    ><span>2,856</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Avg Value Customers</span
+                    ><span>856</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>56</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>56</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Loyal Customers</span
+                    ><span>856</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">New Customers</span
+                    ><span>56</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Lost Customers</span
+                    ><span>1,256</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">At Risk Customers</span
+                    ><span>1,256</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-12">
+            <div class="row">
+              <div class="col-lg-4 col-sm-4">
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Segment Value Last 6 months</span
+                    ><span class="title-column"
+                      >Active High Value Customers</span
+                    ><span>£282,565</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Avg Value Customers</span
+                    ><span>£180,560</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>£12,000</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>£12,000</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Loyal Customers</span
+                    ><span>£85,306</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">New Customers</span
+                    ><span>£11,560</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Lost Customers</span
+                    ><span>£134,256</span>
+                  </div>
+                </div>
+                <div class="content-number1 row">
+                  <div class="respone-section">
+                    <span class="title-column">At Risk Customers</span
+                    ><span>£451,256</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-12">
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column"
+                      >% of total sales Last 6 months</span
+                    ><span class="title-column"
+                      >Active High Value Customers</span
+                    ><span>70%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Avg Value Customers</span
+                    ><span>10%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>10%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>10%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Loyal Customers</span
+                    ><span>45%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">New Customers</span
+                    ><span>34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Lost Customers</span
+                    ><span>34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">At Risk Customers</span
+                    ><span>12%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-12">
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">% of total sales Last Year</span
+                    ><span class="title-column"
+                      >Active High Value Customers</span
+                    ><span>70%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Avg Value Customers</span
+                    ><span>10%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>10%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Low Value Customers</span
+                    ><span>10%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Active Loyal Customers</span
+                    ><span>45%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">New Customers</span
+                    ><span>34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">Lost Customers</span
+                    ><span>34%</span>
+                  </div>
+                </div>
+                <div class="content-percent1 row">
+                  <div class="respone-section">
+                    <span class="title-column">At Risk Customers</span
+                    ><span>12%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <p class="mb-0"><b>Tomorrow:</b> Product Thursday</p>
+        <p class="small text-muted">
+          Delving into your Customer Segments, how they are changing and any
+          actions you can take to drive growth.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

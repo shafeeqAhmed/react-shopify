@@ -1,0 +1,101 @@
+@import '../constants.scss';
+
+.analytic-card {
+  &_title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+  }
+  .text-black {
+    color: $black;
+  }
+  .text-gray {
+    color: $defaultFontColor;
+  }
+  .fs-xxxl {
+    font-size: 48px;
+  }
+  .fs-xxl {
+    font-size: 36px;
+  }
+  .fs-xl {
+    font-size: 24px;
+  }
+  .fs-l {
+    font-size: 18px;
+  }
+  .fs-xm {
+    font-size: 14px;
+  }
+  .fs-m {
+    font-size: 13px;
+  }
+  .fs-s {
+    font-size: 11px;
+  }
+  .fs-xs {
+    font-size: 10px;
+  }
+  .fw-400 {
+    font-weight: 400;
+  }
+}
+.section-flex {
+  display: flex;
+}
+.footer-analyticard {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-top: 2rem;
+  position: sticky;
+  bottom: 0px;
+  left: 0px;
+  z-index: 20;
+  background-color: #f6f6f8;
+  .icon-whisky {
+    background-repeat: no-repeat;
+    background-image: url(../../img/icon-whisky.svg);
+    width: 60px;
+    height: 60px;
+  }
+  .infor-one,
+  .infor-two {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #706f6f;
+  }
+  .infor-two {
+    font-weight: bold;
+    margin-top: 3px;
+  }
+  .footer-text {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+}
+.prev-next-button {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #706f6f;
+  padding: 3px;
+}
+@media only screen and (max-width: 768px) {
+  .padding-container {
+    padding: 12px 15px;
+  }
+  .footer-analyticard {
+    .icon-whisky {
+      width: 0;
+      height: 0;
+    }
+  }
+}

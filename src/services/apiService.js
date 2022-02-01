@@ -1,7 +1,7 @@
 import axios from 'axios';
-import {globalConstants} from '../global/globalVariables';
-import StorageManager from "../app/storageManager"
-import AuthenticationService from "./authentication"
+import {globalConstants} from 'global/globalVariables';
+import StorageManager from "app/storageManager"
+import AuthenticationService from "services/authentication"
 
 axios.defaults.baseURL = globalConstants.BASE_URL + globalConstants.URL_INITIAL;
 

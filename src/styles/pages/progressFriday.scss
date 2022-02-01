@@ -1,0 +1,79 @@
+.progress-friday {
+    padding-left: 0px;
+    .card-title {
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .text-muted {
+        font-size: 13px;
+        line-height: 15px;
+        color: #818b97;
+    }
+    .card-info {
+        font-size: 10px;
+        line-height: 12px;
+        .m-2 {
+            margin-top: 0 !important;
+        }
+    }
+    .card-text {
+        font-size: 13;
+        list-style: 15;
+    }
+    .text-title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #706f6f;
+    }
+    .text-value {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 56px;
+        color: #000000;
+    }
+    .text-gray {
+        color: #706f6f !important;
+    }
+    .text-green {
+        color: #abd439 !important;
+    }
+    .fs-13 {
+        font-size: 13px;
+    }
+    .chart-model {
+        margin-top: 95px;
+    }
+    .forecast-vl {
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        .text-value {
+            margin: 0;
+        }
+        .fa-right {
+            padding: 0 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    .progress-friday {
+        margin: 0;
+        padding: 0 !important;
+        .w-75 {
+            width: 100% !important;
+        }
+        .chart-model {
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+        .forecast-vl {
+            margin-bottom: 20px;
+        }
+    }
+}

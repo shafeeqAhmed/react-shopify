@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {createShopifyOrganisation} from "../../services/account";
+import {createShopifyOrganisation} from "services/account";
 
 export default class Complete extends Component {
   state = {

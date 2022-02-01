@@ -1,0 +1,96 @@
+@import '../../constants.scss';
+
+.page-customer-segment {
+    .segment {
+        &-big {
+            font-size: 36px;
+            line-height: 42.19px;
+            font-weight: 700;
+
+            &gest {
+                font-size: 48px;
+                line-height: 56.25px;
+                font-weight: 700;
+            }
+        }
+
+        &-currently {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21.09px;
+            color: $black;
+        }
+
+        &-end {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &-item {
+            font-size: 14px;
+            line-height: 16.41px;
+            font-weight: 700;
+        }
+
+        &-mobile {
+            display: none;
+        }
+
+        &-normal {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 28.13px;
+            color: $black;
+        }
+
+        &-price {
+            &-big {
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 28.13px;
+                color: $black;
+            }
+
+            &-normal {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 21.09px;
+                color: $defaultFontColor;
+            }
+        }
+
+        &-show {
+            display: none;
+        }
+
+        &-small {
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 16.41px;
+
+            color: $defaultFontColor;
+
+            &-thin {
+                font-weight: 400;
+            }
+        }
+
+        &-orange {
+            color: #f05a28;
+        }
+
+        &-title {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 15.23px;
+            color: $defaultFontColor;
+
+            &-bold {
+                font-weight: 700;
+            }
+        }
+    }
+    .container-content {
+        padding-left: 0px;
+    }
+}

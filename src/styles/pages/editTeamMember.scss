@@ -1,68 +1,91 @@
-@import "../constants.scss";
+@import '../constants.scss';
 
 .edit-team-members,
 .add-team-members {
+    .form-check-input {
+        width: 22px;
+        height: 20px;
+        margin-right: 17px;
+    }
     .text-content {
-        font-family: Roboto;
+        max-width: 520px;
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
         line-height: 14px;
         color: $defaultFontColor;
     }
+
     .text-label {
-        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
         line-height: 16px;
         color: $black !important;
     }
+
     .sub-text {
-        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 11px;
         line-height: 13px;
+        color: #2e2e2e;
+    }
+    .title-label {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .valid-feedback {
+        width: auto;
     }
     .form-check-input.is-valid,
     .was-validated .form-check-input:valid {
         color: $defaultFontColor !important;
         border-color: $defaultFontColor;
     }
+
     .form-left {
         border-right: 1px solid #e3e3e3;
         padding-left: 15px;
         padding-right: 30px;
     }
+
     .form-right {
         padding-left: 47px;
+        padding-right: 0;
     }
+
     .text-feedback {
-        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 11px;
         line-height: 13px;
         color: #74828e;
+        margin-left: 17px;
     }
+
     .p0 {
         padding: 0;
     }
+
     .mb-30 {
         margin-bottom: 30px;
     }
+
     .pl-30 {
         padding-left: 30px;
     }
+
     .p-15 {
         padding: 15px;
     }
+
     .list-buttons {
         display: flex;
         justify-content: space-between;
         padding: 0;
     }
+
     .button-cancel,
     .button-delete {
         padding: 10px 16px;
@@ -70,33 +93,112 @@
         line-height: 15px;
         color: #414344;
     }
+
     .button-cancel {
         margin-right: 28px;
     }
+
     .button-success {
         padding: 10px 37px;
         font-size: 13px;
         line-height: 15px;
         text-align: center;
-
         color: #fbfdfc;
     }
+    .loader {
+        border: 10px solid #f3f3f3; /* Light grey */
+        border-top: 10px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    .container-modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        border-style: none;
+        background: rgba(0, 0, 0, 0.4);
+        animation: ngdialog-fadein 0.5s;
+        .overlay-modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            -webkit-backface-visibility: hidden;
+            animation: ngdialog-fadein 0.5s;
+            margin-right: 15px;
+            background: transparent;
+            z-index: -99;
+        }
+        .modal-status {
+            background: white;
+            -webkit-backface-visibility: hidden;
+            animation: ngdialog-fadein 0.5s;
+            pointer-events: all;
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40% !important;
+            min-width: 300px !important;
+            margin-top: 10%;
+            z-index: 9999;
+        }
+    }
 }
+
 @media only screen and (max-width: 768px) {
+    .add-team-members,
     .edit-team-members {
+        .button-success {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .button-cancel {
+            margin-right: 0;
+            margin-bottom: 30px;
+            width: 100%;
+        }
         .form-left {
             border-right: none;
             border-bottom: 1px solid #e3e3e3;
             padding-right: 15px;
         }
+
         .form-right {
             padding-left: 15px;
             margin-top: 20px;
         }
+
         .form-header {
             padding-left: 0;
         }
+        .list {
+            &-buttons {
+                flex-direction: column-reverse;
+            }
+
+            &-cancel {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     }
+
     .add-team-members {
         .form-header {
             padding-left: 0;

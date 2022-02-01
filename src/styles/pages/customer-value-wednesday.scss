@@ -1,0 +1,155 @@
+.page-customer-wednesday {
+  background-color: #fff;
+  .section-content {
+    span {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 16px;
+      color: #706f6f;
+    }
+    p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 15px;
+      color: #706f6f;
+    }
+    .content-col1 {
+      text-align: right;
+      div {
+        display: flex;
+        flex-flow: column;
+      }
+    }
+    .content-row-three {
+      display: flex;
+      flex-flow: column;
+      margin-top: 20px;
+      span {
+        margin-bottom: 20px;
+      }
+    }
+    .content-row-1 {
+      .percent-1 {
+        font-size: 48px;
+        line-height: 56px;
+        color: #000000;
+      }
+      .percent-2 {
+        font-size: 12px;
+        line-height: 14px;
+        color: #000000;
+      }
+    }
+    .content-row-2 {
+      margin-top: 50px;
+      .row1 {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: bold;
+        color: #000000;
+      }
+      span,
+      p {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .row2 {
+        font-size: 13px;
+        line-height: 15px;
+      }
+    }
+    .content-row-four {
+      display: flex;
+      span,
+      p {
+        font-size: 13px;
+        line-height: 15px;
+      }
+      p {
+        margin-top: 20px;
+      }
+    }
+    .col5 {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 15px;
+      color: #706f6f;
+      display: flex;
+      align-items: flex-end;
+    }
+    .content-row-six {
+      margin-top: 40px;
+      div {
+        display: flex;
+      }
+    }
+    .section-current-cohort {
+      background: rgba(159, 206, 29, 0.21);
+    }
+    @media only screen and (max-width: 576px) {
+      .respone-mobile {
+        display: none !important;
+      }
+      .respone-row-four {
+        span {
+          margin: 20px 0 20px 0;
+        }
+      }
+    }
+    @media only screen and (max-width: 576px) {
+      .respone-section {
+        display: flex !important;
+        flex-flow: column;
+        align-items: flex-start;
+        span {
+          margin-bottom: 20px;
+        }
+      }
+      .content-row-three {
+        display: none !important;
+      }
+    }
+    @media only screen and (min-width: 576px) {
+      .respone-section {
+        display: none !important;
+      }
+      .respone-mobile {
+        display: flex !important;
+        flex-flow: column;
+        justify-content: flex-end;
+      }
+    }
+    .perecent-buy {
+      align-items: flex-start;
+    }
+    .respone-top5 {
+      justify-content: flex-start;
+    }
+  }
+  .title-page {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px 20px 0px;
+    span {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+      color: #000000;
+    }
+  }
+  .card-header,
+  .card-footer {
+    background-color: #fff;
+  }
+  .card-offset-customer {
+    padding-left: 55px;
+  }
+  .card-title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

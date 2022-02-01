@@ -1,0 +1,35 @@
+.analytics-infor {
+    .section-infor {
+        height: 100vh;
+        .section-flex {
+            display: flex;
+        }
+        .infor-one {
+            display: flex;
+            justify-content: center;
+            margin-left: 5px;
+            span {
+                font-size: 24px;
+            }
+        }
+        .infor-two {
+            margin-left: 5px;
+            margin-top: 20px;
+        }
+        .infor-text-two {
+            font-weight: 600;
+        }
+        // .infor-text-three{
+        //     font-weight: 600;
+        // }
+    }
+    .row-1 {
+        height: 20%;
+    }
+    .icon-whisky {
+        background-repeat: no-repeat;
+        background-image: url(../../img/icon-whisky.svg);
+        width: 140px;
+        height: 100px;
+    }
+}

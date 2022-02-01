@@ -13,3 +13,8 @@ in 'App URL' and 'Allowed redirection URL(s)'
 2. Click 'Test on dev store' and choose store
 3. Test
 4. Uninstall app if need to test auth again
+
+# Running application on the local
+1. Go to the root directory.
+2. Please run `yarn install`.
+2. After that, run `yarn start`

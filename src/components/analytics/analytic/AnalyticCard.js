@@ -1,60 +1,132 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDollarSign, faInfo, faPlay } from '@fortawesome/free-solid-svg-icons'
-import { Col, Container, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from "moment";
+import {
+  faPlay,
+} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import "styles/pages/analytic-card.scss";
+import { Col, Container, Row } from "react-bootstrap";
+import { getCardData } from "features/cardData/cardDataSlice";
+import Monday from "./Monday";
+import CustomerSegmentation from "components/customer/CustomerSegmentation";
+import CustomerValueWednesday from "components/customer/CustomerValueWednesday";
+import ProductThursday from "../ProductThursday";
+import ProgressFriday from "../ProgressFriday";
+import StatErDay from "components/customer/StatErDay";
+import Sunday from "components/customer/Sunday";
 
 const AnalyticCard = () => {
-    const faDolar = <FontAwesomeIcon icon={faDollarSign} />
-    const faIn = <FontAwesomeIcon icon={faInfo} />
-    const faPl = <FontAwesomeIcon icon={faPlay} />
+  const faPl = <FontAwesomeIcon icon={faPlay} />;
+  const [currentDate, setCurrentDate] = useState(moment().format("YYYY-MM-DD"));
+  const [date, setDate] = useState("");
+  const dispatch = useDispatch();
 
-    return (
-        <>
-            <Container className="px-4 py-3" fluid>
-            <Row>
-                <Col>
-                    <div className="d-inline-flex mx-3">
-                    <span className="icon-rotate card-sm-icon">{faPl}</span>
-                    <p className="px-2 small">1st Dec 21</p> 
-                    <span className="card-sm-icon icon">{faPl}</span>     
-                    </div>        
-                    <div className="card m-md-3 m-0 p-2 rounded shadow-sm analytic-card">
-                        <div className="card-header border-bottom-1 pl-3 position-relative">      
-                            <div className="row card-header-row">
-                                <div className="col-1 d-flex card-col-icon align-items-center">
-                                    <div className="card-icon">
-                                        {faDolar}
-                                    </div> 
-                                </div>     
-                                <div className="col-11 card-title-col">
-                                <div className="card-title fs-5 fw-bold">                                             
-                                Catch-up Monday</div>                                
-                                </div>  
-                                <div className="col-12 card-offset">
-                                    <p className="card-info small">How to read information in <br></br>this card?
-                                    <span className="card-sm-icon m-2">
-                                        {faIn}
-                                    </span>
-                                    </p>
-                                    <p className="small text-muted mb-1 mb-md-2">Monday 1st December 2021</p>
-                                    <div className="text-wrap pr-3 w-75">
-                                    <p className="card-text">Let's start the week right. Review what happened over the weekend and last week, track that against your usual business performance to see how you're doing.</p>
-                                    </div>
-                                </div>  
-                            </div>                    
-                            
-                        </div>   
-                        <div className="card-body"></div>
-                        <div className="card-footer">
-                            <p className="mb-0"><b>Tomorrow:</b> Customer Segmentation Tuesday!</p>    
-                            <p className="small text-muted">Delving into your Customer Segments, how they are changing and any actions you can take to drive growth.</p>
-                        </div>                        
-                    </div>
-                </Col>
-            </Row>
-        </Container>    
-        </>       
-    )
-}
+  const [day, setDay] = useState("");
+  const [briefDate, setBriefDate] = useState("");
+  const [nextButtonActive, setNextButtonActive] = useState(false);
+  const [previousButtonActive, setPreviousButtonActive] = useState(false);
 
-export default AnalyticCard
+  const getDataCardDatePrevious = (date) => {
+    dispatch(getCardData(date));
+    setNextButtonActive(false);
+    setPreviousButtonActive(true);
+    setCurrentDate(date);
+  };
+  const getDataCardDateNext = (date) => {
+    dispatch(getCardData(date));
+    setNextButtonActive(true);
+    setPreviousButtonActive(false);
+    setCurrentDate(date);
+  };
+
+  const cardData = useSelector((state) => state.cardData.cardData);
+  useEffect(() => {
+    setDate(moment(cardData?.data?.date).format("dddd Do MMMM YYYY"));
+    setBriefDate(moment(cardData?.data?.date).format("Do MMM YY"));
+    setDay(moment(cardData?.data?.date).format("dddd"));
+  }, [cardData]);
+  useEffect(() => {
+    dispatch(getCardData(currentDate));
+  }, [currentDate, dispatch]);
+  const renderContent = () => {
+    let content = null;
+    switch (moment(currentDate).isoWeekday()) {
+      case 1:
+        content = <Monday day={day} date={date} />;
+        break;
+      case 2:
+        content = <CustomerSegmentation day={day} date={date} />;
+        break;
+      case 3:
+        content = <CustomerValueWednesday day={day} date={date} />;
+        break;
+      case 4:
+        content = <ProductThursday day={day} date={date} />;
+        break;
+      case 5:
+        content = <ProgressFriday day={day} date={date} />;
+        break;
+      case 6:
+        content = <StatErDay day={day} date={date} />;
+        break;
+      case 7:
+        content = <Sunday />;
+        break;
+      default:
+        break;
+    }
+    return content;
+  };
+  return (
+    <>
+      <Container className="padding-container" fluid>
+        <Row>
+          <Col>
+            <div className="d-inline-flex">
+              <span
+                onClick={() =>
+                  getDataCardDatePrevious(
+                    moment(currentDate).subtract(1, "days").format("YYYY-MM-DD")
+                  )
+                }
+                className={`icon-rotate card-sm-icon ${
+                  previousButtonActive ? "" : "icon-not-active"
+                }`}
+              >
+                {faPl}
+              </span>
+              <p className="prev-next-button">{briefDate}</p>
+              <span
+                onClick={() =>
+                  getDataCardDateNext(
+                    moment(currentDate).add(1, "days").format("YYYY-MM-DD")
+                  )
+                }
+                className={`card-sm-icon icon ${
+                  nextButtonActive ? "" : "icon-not-active"
+                }`}
+              >
+                {faPl}
+              </span>
+            </div>
+            {renderContent()}
+          </Col>
+        </Row>
+      </Container>
+      <div className="footer-analyticard fs-m section-flex">
+            <div className="icon-whisky"></div>
+            <div className="footer-text">
+                <div className="infor-one">
+                    <span>At Distil A.I. we’re on a mission to help businesses like yours transform your data from an expensive, time-consuming challenge into a powerful goal-achieving asset.</span>
+                </div>
+                <div className="infor-two">
+                    <p className="infor-text-two">See how far you can grow, automate, personalise and scale your store with data. Book a demo now. </p>
+                </div>
+            </div>
+        </div>
+    </>
+  );
+};
+
+export default AnalyticCard;

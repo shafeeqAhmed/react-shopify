@@ -1,5 +1,5 @@
 import ShopifyToken from 'shopify-token';
-import {globalConstants, paths} from "../global/globalVariables";
+import { globalConstants, paths } from 'global/globalVariables';
 
 export default {
   shopifyToken: new ShopifyToken({

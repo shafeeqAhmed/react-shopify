@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://unpkg.com/react/umd/react.production.min.js"
+      crossorigin
+    ></script>
+
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+
+    <script
+      src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+      crossorigin
+    ></script>
+
+    <script>
+      var Alert = ReactBootstrap.Alert;
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      svg:not(:root).svg-inline--fa {
+        overflow: visible;
+      }
+
+      .bg-gray {
+        background-color: #f6f6f8;
+      }
+      .text-green {
+        color: rgb(154, 236, 2);
+      }
+      .text-red {
+        color: rgb(223, 0, 0);
+      }
+      @media (min-width: 1024px) {
+        .analytic-card {
+          width: 85%;
+        }
+      }
+      .card .card-header,
+      .card .card-footer {
+        background-color: white;
+      }
+      .analytic-card .card-body {
+        min-height: 500px;
+      }
+      .card-info {
+        position: absolute;
+        display: inline-flex;
+        right: 0px;
+        top: 10px;
+        text-align: right;
+        padding-right: 5px;
+      }
+      .small,
+      small {
+        font-size: 0.8em;
+      }
+      .card-icon {
+        border: 3px solid #666666;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .card-sm-icon {
+        border: 2px solid #666666;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 10px;
+      }
+      .card-icon svg,
+      .card-sm-icon svg {
+        color: #666666;
+      }
+      /* .card-info {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  text-align: right;
+  top: 10px;
+  right: 15px;
+} */
+      .icon {
+        padding-left: 2px;
+        opacity: 0.5;
+      }
+      .icon-rotate {
+        padding-left: 2px;
+        transform: rotate(180deg);
+      }
+      .card-col-icon {
+        width: 55px;
+      }
+      @media (min-width: 1200px) {
+        .card-offset {
+          margin-left: 55px;
+        }
+      }
+
+      @media (max-width: 448px) {
+        .header-info-mobile {
+          padding-top: 50px;
+        }
+        .header-info {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        .analytic-card {
+          width: 100%;
+        }
+        .card-header-row {
+          padding-top: 50px;
+        }
+        .card-title-col {
+          width: 80%;
+          margin-left: -15px;
+          padding-top: 5px;
+        }
+      }
+      .svg-inline--fa {
+        display: inline-block;
+        font-size: inherit;
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+      .svg-inline--fa.fa-lg {
+        vertical-align: -0.225em;
+      }
+      .svg-inline--fa.fa-w-1 {
+        width: 0.0625em;
+      }
+      .svg-inline--fa.fa-w-2 {
+        width: 0.125em;
+      }
+      .svg-inline--fa.fa-w-3 {
+        width: 0.1875em;
+      }
+      .svg-inline--fa.fa-w-4 {
+        width: 0.25em;
+      }
+      .svg-inline--fa.fa-w-5 {
+        width: 0.3125em;
+      }
+      .svg-inline--fa.fa-w-6 {
+        width: 0.375em;
+      }
+      .svg-inline--fa.fa-w-7 {
+        width: 0.4375em;
+      }
+      .svg-inline--fa.fa-w-8 {
+        width: 0.5em;
+      }
+      .svg-inline--fa.fa-w-9 {
+        width: 0.5625em;
+      }
+      .svg-inline--fa.fa-w-10 {
+        width: 0.625em;
+      }
+      .svg-inline--fa.fa-w-11 {
+        width: 0.6875em;
+      }
+      .svg-inline--fa.fa-w-12 {
+        width: 0.75em;
+      }
+      .svg-inline--fa.fa-w-13 {
+        width: 0.8125em;
+      }
+      .svg-inline--fa.fa-w-14 {
+        width: 0.875em;
+      }
+      .svg-inline--fa.fa-w-15 {
+        width: 0.9375em;
+      }
+      .svg-inline--fa.fa-w-16 {
+        width: 1em;
+      }
+      .svg-inline--fa.fa-w-17 {
+        width: 1.0625em;
+      }
+      .svg-inline--fa.fa-w-18 {
+        width: 1.125em;
+      }
+      .svg-inline--fa.fa-w-19 {
+        width: 1.1875em;
+      }
+      .svg-inline--fa.fa-w-20 {
+        width: 1.25em;
+      }
+      .svg-inline--fa.fa-pull-left {
+        margin-right: 0.3em;
+        width: auto;
+      }
+      .svg-inline--fa.fa-pull-right {
+        margin-left: 0.3em;
+        width: auto;
+      }
+      .svg-inline--fa.fa-border {
+        height: 1.5em;
+      }
+      .svg-inline--fa.fa-li {
+        width: 2em;
+      }
+      .svg-inline--fa.fa-fw {
+        width: 1.25em;
+      }
+
+      .fa-layers svg.svg-inline--fa {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .fa-layers {
+        display: inline-block;
+        height: 1em;
+        position: relative;
+        text-align: center;
+        vertical-align: -0.125em;
+        width: 1em;
+      }
+      .fa-layers svg.svg-inline--fa {
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+      }
+
+      .fa-layers-counter,
+      .fa-layers-text {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+      }
+
+      .fa-layers-text {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+      }
+
+      .fa-layers-counter {
+        background-color: #ff253a;
+        border-radius: 1em;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #fff;
+        height: 1.5em;
+        line-height: 1;
+        max-width: 5em;
+        min-width: 1.5em;
+        overflow: hidden;
+        padding: 0.25em;
+        right: 0;
+        text-overflow: ellipsis;
+        top: 0;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+      }
+
+      .fa-layers-bottom-right {
+        bottom: 0;
+        right: 0;
+        top: auto;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+      }
+
+      .fa-layers-bottom-left {
+        bottom: 0;
+        left: 0;
+        right: auto;
+        top: auto;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left;
+      }
+
+      .fa-layers-top-right {
+        right: 0;
+        top: 0;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+      }
+
+      .fa-layers-top-left {
+        left: 0;
+        right: auto;
+        top: 0;
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+        -webkit-transform-origin: top left;
+        transform-origin: top left;
+      }
+
+      .fa-lg {
+        font-size: 1.3333333333em;
+        line-height: 0.75em;
+        vertical-align: -0.0667em;
+      }
+
+      .fa-xs {
+        font-size: 0.75em;
+      }
+
+      .fa-sm {
+        font-size: 0.875em;
+      }
+
+      .fa-1x {
+        font-size: 1em;
+      }
+
+      .fa-2x {
+        font-size: 2em;
+      }
+
+      .fa-3x {
+        font-size: 3em;
+      }
+
+      .fa-4x {
+        font-size: 4em;
+      }
+
+      .fa-5x {
+        font-size: 5em;
+      }
+
+      .fa-6x {
+        font-size: 6em;
+      }
+
+      .fa-7x {
+        font-size: 7em;
+      }
+
+      .fa-8x {
+        font-size: 8em;
+      }
+
+      .fa-9x {
+        font-size: 9em;
+      }
+
+      .fa-10x {
+        font-size: 10em;
+      }
+
+      .fa-fw {
+        text-align: center;
+        width: 1.25em;
+      }
+
+      .fa-ul {
+        list-style-type: none;
+        margin-left: 2.5em;
+        padding-left: 0;
+      }
+      .fa-ul > li {
+        position: relative;
+      }
+
+      .fa-li {
+        left: -2em;
+        position: absolute;
+        text-align: center;
+        width: 2em;
+        line-height: inherit;
+      }
+
+      .fa-border {
+        border: solid 0.08em #eee;
+        border-radius: 0.1em;
+        padding: 0.2em 0.25em 0.15em;
+      }
+
+      .fa-pull-left {
+        float: left;
+      }
+
+      .fa-pull-right {
+        float: right;
+      }
+
+      .fa.fa-pull-left,
+      .fas.fa-pull-left,
+      .far.fa-pull-left,
+      .fal.fa-pull-left,
+      .fab.fa-pull-left {
+        margin-right: 0.3em;
+      }
+      .fa.fa-pull-right,
+      .fas.fa-pull-right,
+      .far.fa-pull-right,
+      .fal.fa-pull-right,
+      .fab.fa-pull-right {
+        margin-left: 0.3em;
+      }
+
+      .fa-spin {
+        -webkit-animation: fa-spin 2s infinite linear;
+        animation: fa-spin 2s infinite linear;
+      }
+
+      .fa-pulse {
+        -webkit-animation: fa-spin 1s infinite steps(8);
+        animation: fa-spin 1s infinite steps(8);
+      }
+
+      @-webkit-keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .fa-rotate-90 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .fa-rotate-180 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      .fa-rotate-270 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+      }
+
+      .fa-flip-horizontal {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+        -webkit-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+      }
+
+      .fa-flip-vertical {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+        -webkit-transform: scale(1, -1);
+        transform: scale(1, -1);
+      }
+
+      .fa-flip-both,
+      .fa-flip-horizontal.fa-flip-vertical {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+      }
+
+      :root .fa-rotate-90,
+      :root .fa-rotate-180,
+      :root .fa-rotate-270,
+      :root .fa-flip-horizontal,
+      :root .fa-flip-vertical,
+      :root .fa-flip-both {
+        -webkit-filter: none;
+        filter: none;
+      }
+
+      .fa-stack {
+        display: inline-block;
+        height: 2em;
+        position: relative;
+        width: 2.5em;
+      }
+
+      .fa-stack-1x,
+      .fa-stack-2x {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .svg-inline--fa.fa-stack-1x {
+        height: 1em;
+        width: 1.25em;
+      }
+      .svg-inline--fa.fa-stack-2x {
+        height: 2em;
+        width: 2.5em;
+      }
+
+      .fa-inverse {
+        color: #fff;
+      }
+
+      .sr-only {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .sr-only-focusable:active,
+      .sr-only-focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+      }
+
+      .svg-inline--fa .fa-primary {
+        fill: var(--fa-primary-color, currentColor);
+        opacity: 1;
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa .fa-secondary {
+        fill: var(--fa-secondary-color, currentColor);
+        opacity: 0.4;
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-primary {
+        opacity: 0.4;
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-secondary {
+        opacity: 1;
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa mask .fa-primary,
+      .svg-inline--fa mask .fa-secondary {
+        fill: black;
+      }
+
+      .fad.fa-inverse {
+        color: #fff;
+      }
+      .progress-friday .card-title {
+        font-size: 18px;
+        line-height: 21px;
+      }
+      .progress-friday .text-muted {
+        font-size: 13px;
+        line-height: 15px;
+        color: #818b97;
+      }
+      .progress-friday .card-info {
+        font-size: 10px;
+        line-height: 12px;
+      }
+      .progress-friday .card-info .m-2 {
+        margin-top: 0 !important;
+      }
+      .progress-friday .card-text {
+        font-size: 13;
+        list-style: 15;
+      }
+      .progress-friday .text-title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #706f6f;
+      }
+      .progress-friday .text-value {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 56px;
+        color: #000;
+      }
+      .progress-friday .text-gray {
+        color: #706f6f;
+      }
+      .progress-friday .text-green {
+        color: #abd439;
+      }
+      .progress-friday .fs-13 {
+        font-size: 13px;
+      }
+      .progress-friday .chart-model {
+        margin-top: 95px;
+      }
+      .progress-friday .forecast-vl {
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .progress-friday .forecast-vl .text-value {
+        margin: 0;
+      }
+      .progress-friday .forecast-vl .fa-right {
+        padding: 0 20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: flex-end;
+      }
+      @media only screen and (max-width: 768px) {
+        .progress-friday {
+          margin: 0;
+          padding: 0 !important;
+        }
+        .progress-friday .w-75 {
+          width: 100% !important;
+        }
+        .progress-friday .chart-model {
+          margin-top: 40px;
+          margin-bottom: 50px;
+        }
+        .progress-friday .forecast-vl {
+          margin-bottom: 20px;
+        }
+        body {
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+            "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+            "Helvetica Neue", sans-serif!important;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          background-color: #f6f6f8;
+        }
+
+        code {
+          font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+            monospace;
+        }
+
+        .bg-gray {
+          background-color: #f6f6f8;
+        }
+        .text-green {
+          color: rgb(154, 236, 2);
+        }
+        .text-red {
+          color: rgb(223, 0, 0);
+        }
+        @media (min-width: 1024px) {
+          .analytic-card {
+            width: 85%;
+          }
+        }
+        .card .card-header,
+        .card .card-footer {
+          background-color: white;
+        }
+        .analytic-card .card-body {
+          min-height: 500px;
+        }
+        .card-info {
+          position: absolute;
+          display: inline-flex;
+          right: 0px;
+          top: 10px;
+          text-align: right;
+          padding-right: 5px;
+        }
+        .small,
+        small {
+          font-size: 0.8em;
+        }
+        .card-icon {
+          border: 3px solid #666666;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          border-radius: 50%;
+        }
+        .card-sm-icon {
+          border: 2px solid #666666;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          align-items: center;
+          display: inline-flex;
+          justify-content: center;
+          border-radius: 50%;
+          font-size: 10px;
+        }
+        .card-icon svg,
+        .card-sm-icon svg {
+          color: #666666;
+        }
+        /* .card-info {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  text-align: right;
+  top: 10px;
+  right: 15px;
+} */
+        .icon {
+          padding-left: 2px;
+          opacity: 0.5;
+        }
+        .icon-rotate {
+          padding-left: 2px;
+          transform: rotate(180deg);
+        }
+        .card-col-icon {
+          width: 55px;
+        }
+        @media (min-width: 1200px) {
+          .card-offset {
+            margin-left: 55px;
+          }
+        }
+
+        @media (max-width: 448px) {
+          .header-info-mobile {
+            padding-top: 50px;
+          }
+          .header-info {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+          .analytic-card {
+            width: 100%;
+          }
+          .card-header-row {
+            padding-top: 50px;
+          }
+          .card-title-col {
+            width: 80%;
+            margin-left: -15px;
+            padding-top: 5px;
+          }
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="progress-friday px-4 py-3 p-5 container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="card m-md-3 m-0 p-2 rounded shadow-sm analytic-card">
+              <div class="card-header border-bottom-1 pl-3 position-relative">
+                <div class="row card-header-row">
+                  <div class="col-1 d-flex card-col-icon align-items-center">
+                    <div class="card-icon">
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="dollar-sign"
+                        class="svg-inline--fa fa-dollar-sign fa-w-9"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 288 512"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="col-11 card-title-col">
+                    <div class="card-title fs-5 fw-bold">Progress Friday</div>
+                  </div>
+                  <div
+                    class="col-1 d-flex card-col-icon align-items-center"
+                  ></div>
+                  <div class="col-11 card-offset">
+                    <p class="card-info small">
+                      How to read information in <br />this card?<span
+                        class="card-sm-icon m-2"
+                        ><svg
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fas"
+                          data-icon="info"
+                          class="svg-inline--fa fa-info fa-w-6"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 192 512"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z"
+                          ></path></svg
+                      ></span>
+                    </p>
+                    <p class="small text-muted mb-1 mb-md-2">
+                      Monday 1st December 2021
+                    </p>
+                    <div class="text-wrap pr-3 w-75">
+                      <p class="card-text">
+                        Friday! Hurray. Lets see how this week is tracking
+                        against our forecast and look forward to next week
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body m-md-3 m-0 border-bottom-1">
+                <div>
+                  <div class="row">
+                    <div class="col-md-6 col-12">
+                      <div>
+                        <p class="text-title">Sales so far this week</p>
+                        <p class="text-value">
+                          <span
+                            ><svg
+                              aria-hidden="true"
+                              focusable="false"
+                              data-prefix="fas"
+                              data-icon="pound-sign"
+                              class="svg-inline--fa fa-pound-sign fa-w-10"
+                              role="img"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 320 512"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z"
+                              ></path></svg></span
+                          ><b>42k</b>
+                        </p>
+                        <p class="small text-title">
+                          <span class="text-green fw-bold">+ 4% </span>over this
+                          week last year
+                        </p>
+                      </div>
+                      <div class="chart-model">
+                        <canvas
+                          role="img"
+                          height="203"
+                          width="406"
+                          style="
+                            display: block;
+                            box-sizing: border-box;
+                            height: 203px;
+                            width: 406px;
+                          "
+                        ></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                      <div class="d-flex forecast-vl">
+                        <div>
+                          <p class="text-title">Start of Week Forecast</p>
+                          <p class="text-gray text-value">
+                            <span
+                              ><svg
+                                aria-hidden="true"
+                                focusable="false"
+                                data-prefix="fas"
+                                data-icon="pound-sign"
+                                class="svg-inline--fa fa-pound-sign fa-w-10"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 320 512"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z"
+                                ></path></svg></span
+                            >22k
+                          </p>
+                        </div>
+                        <span class="fa-right"
+                          ><svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fas"
+                            data-icon="angle-double-right"
+                            class="svg-inline--fa fa-angle-double-right fa-w-14"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                            ></path></svg
+                        ></span>
+                        <div>
+                          <p class="text-title">Updated end of week forecast</p>
+                          <p class="text-green fw-bold text-value">
+                            <span
+                              ><svg
+                                aria-hidden="true"
+                                focusable="false"
+                                data-prefix="fas"
+                                data-icon="pound-sign"
+                                class="svg-inline--fa fa-pound-sign fa-w-10"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 320 512"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z"
+                                ></path></svg></span
+                            >70k
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <p class="text-title fs-13">
+                          <b
+                            ><span class="text-green fw-bold">Up </span
+                            ><svg
+                              aria-hidden="true"
+                              focusable="false"
+                              data-prefix="fas"
+                              data-icon="pound-sign"
+                              class="svg-inline--fa fa-pound-sign fa-w-10"
+                              role="img"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 320 512"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M308 352h-45.495c-6.627 0-12 5.373-12 12v50.848H128V288h84c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-84v-63.556c0-32.266 24.562-57.086 61.792-57.086 23.658 0 45.878 11.505 57.652 18.849 5.151 3.213 11.888 2.051 15.688-2.685l28.493-35.513c4.233-5.276 3.279-13.005-2.119-17.081C273.124 54.56 236.576 32 187.931 32 106.026 32 48 84.742 48 157.961V224H20c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h28v128H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h296c6.627 0 12-5.373 12-12V364c0-6.627-5.373-12-12-12z"
+                              ></path></svg
+                            >75k </b
+                          >over the start of the week forecast.
+                        </p>
+                        <p class="text-title fs-13">
+                          If you achive this forecast it would rank 4th out of
+                          the last 20 weeks.
+                        </p>
+                      </div>
+                      <canvas
+                        role="img"
+                        height="203"
+                        width="406"
+                        style="
+                          display: block;
+                          box-sizing: border-box;
+                          height: 203px;
+                          width: 406px;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <p class="mb-0"><b>Tomorrow:</b>Saturday, Stat-a-day!</p>
+                <p class="small text-muted">xxxx</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
